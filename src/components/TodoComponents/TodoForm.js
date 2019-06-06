@@ -11,21 +11,21 @@ class TodoForm extends React.Component {
   onAddItem = (e) => {
     e.preventDefault();
     this.props.addNewItem(this.state.userInput);
+    window.location.reload();
   };
-  hanldeClearCompletedItems = (e) => {
-    e.preventDefault();
-    this.props.clearCompletedItems()
-  }
+ 
   render() {
     // console.log(this.state.userInput);
     return (
-      <form>
-        <input
-          placeholder="enter a todo item"
-          onChange={e => this.setState({ userInput: e.target.value })}
-        />
-        <button onClick={e => this.onAddItem(e)}>Add</button>
-        <button onClick={e => this.hanldeClearCompletedItems(e)}>Clear Completed</button>
+      <form className="form">
+        <div className="flexbox">
+          <input
+            className="input-new-item"
+            placeholder="add new item"
+            onChange={e => this.setState({ userInput: e.target.value })}
+          />
+          <button className={"btn-add-new-item"} onClick={e => this.onAddItem(e)}>Add</button>
+        </div>
       </form>
     );
   }

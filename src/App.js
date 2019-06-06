@@ -2,24 +2,6 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import { saveData, getData } from "./utilities/localStorage";
 
-const defaultData = [
-  {
-    task: "Organize Garage",
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: "Organize Garage",
-    id: 1528817077287,
-    completed: false
-  },
-  {
-    task: "Bake Cookies",
-    id: 1528817084358,
-    completed: false
-  }
-];
-
 class App extends React.Component {
   constructor() {
     super();
@@ -76,15 +58,17 @@ class App extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <div>
-        <h2>Welcome!</h2>
-        <TodoList
-          data={this.state.data}
-          addNewItem={this.addNewItem}
-          toggleComplete={this.toggleStatusComplete}
-          clearCompletedItems={this.clearCompletedItems}
-          searchItems={this.searchItems}
-        />
+      <div className="background-container">
+        <div className="main-container">
+          <h2 className="welcome-text">Welcome!</h2>
+          <TodoList
+            data={this.state.data}
+            addNewItem={this.addNewItem}
+            toggleComplete={this.toggleStatusComplete}
+            clearCompletedItems={this.clearCompletedItems}
+            searchItems={this.searchItems}
+          />
+        </div>
       </div>
     );
   }
