@@ -3,6 +3,7 @@ import React from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 import TodoSearch from "./TodoSearch";
+import BtnClearCompleted from './BtnClearCompleted';
 
 import "./Todo.css";
 
@@ -24,18 +25,21 @@ import "./Todo.css";
 // }
 const TodoList = props => (
   <div>
+     <TodoSearch
+      searchItems={props.searchItems}
+    />
     <TodoForm
       addNewItem={props.addNewItem}
       clearCompletedItems={props.clearCompletedItems}
     />
-    {props.data && props.data.map((item, index) => {
-      return (
-        <Todo key={index} item={item} toggleComplete={props.toggleComplete} />
-      );
-    })}
-    <TodoSearch
-      searchItems={props.searchItems}
-    />
+    <div className="div-items">
+      {props.data && props.data.map((item, index) => {
+        return (
+          <Todo key={index} item={item} toggleComplete={props.toggleComplete} />
+        );
+      })}
+    </div>
+    <BtnClearCompleted clearCompletedItems={props.clearCompletedItems} />
   </div>
 );
 export default TodoList;

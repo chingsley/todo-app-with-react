@@ -11,8 +11,10 @@ class TodoSearch extends React.Component {
   render() {
     return(
       <input
+        className="input-search-box"
         type="text"
         onChange={e => this.handleSearchItems(e)}
+        placeholder="Search..."
       />
     );
   }

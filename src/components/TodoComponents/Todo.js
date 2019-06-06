@@ -10,12 +10,10 @@ class Todo extends React.Component {
   };
   render() {
     return (
-      <>
-        <p>
-          <span className={this.props.item.completed ? "completed" : "not-completed"}>{this.props.item.task}</span>
-          <button onClick={this.handleToggleComplete}>{this.props.item.completed ? "start again" : "done"}</button>
-        </p>
-      </>
+        <div className="todo-item">
+          <p><span className={this.props.item.completed ? "completed" : "not-completed"}>{this.props.item.task}</span></p>
+          <p><button className="btn" onClick={this.handleToggleComplete}>{this.props.item.completed ? "Start again" : "Done"}</button></p>
+        </div>
     );
   }
 }
